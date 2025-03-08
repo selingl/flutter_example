@@ -9,10 +9,14 @@ void main() {
 void f() {
   print('another function');
   Employee e = Employee();
-  e.name='Selin';
+  setNameToJack(e);
   e.jobTitle='software engineer';
   print(e.name);
   print(e.jobTitle);
+}
+
+void setNameToJack(Person e) {
+  e.name='Selin';
 }
 
 class Person {
