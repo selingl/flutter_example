@@ -66,6 +66,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String myCat = 'Duman';
+  String paws = '';
 
   void _incrementCounter() {
     setState(() {
@@ -79,6 +80,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _addPawEmoji(){
+    setState(() {
+      paws = '🐾';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -87,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    print('build is called');
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -125,14 +133,25 @@ class _MyHomePageState extends State<MyHomePage> {
               myCat,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const Text('clicked button down below :)'),
+            const SizedBox(width: 10),
+            Text(
+              paws,
+              style: const TextStyle(fontSize: 30)
+            ),
+            IconButton(
+              onPressed: _addPawEmoji,
+              icon: Icon(Icons.add_box_rounded),
+              ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        child: const Icon(Icons.add_box_rounded),
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
